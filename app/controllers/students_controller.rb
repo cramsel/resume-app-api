@@ -33,7 +33,7 @@ class StudentsController < ApplicationController
     student.first_name = params[:first_name] || student.first_name
     student.last_name = params[:last_name] || student.last_name
     student.email = params[:email] || student.email
-    student.password_digest = params[:password_digest] || student.password_digest
+    student.password = params[:password] || student.password
     student.phone_number = params[:phone_number] || student.phone_number
     student.short_bio = params[:short_bio] || student.short_bio
     student.linkedin_url = params[:linkedin_url] || student.linkedin_url
