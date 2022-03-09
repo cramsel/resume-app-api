@@ -1,0 +1,17 @@
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{ 
+    "first_name": "Test",
+      "last_name": "test",
+      "email": "Test",
+      "password_digest": "Test",
+      "phone_number" : "Test",
+      "short_bio" : "Test",
+      "linkedin_url" : "Test",
+      "twitter_handle" : "Test",
+      "personal_blog_url" : "Test",
+      "resume_url" : "Test",
+      "github_url" : "Test",
+      "photo_url" : "Test"
+}
