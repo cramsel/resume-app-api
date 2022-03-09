@@ -15,3 +15,30 @@ Content-Type: application/json
       "github_url" : "Test",
       "photo_url" : "Test"
 }
+
+### Show student
+GET http://localhost:3000/student/3
+Content-Type: application/json
+
+### Update 
+PATCH http://localhost:3000/students/1
+Content-Type: application/json
+
+{
+  "first_name": "New",
+      "last_name": "New",
+      "email": "New",
+      "password_digest": "New",
+      "phone_number" : "New",
+      "short_bio" : "New",
+      "linkedin_url" : "New",
+      "twitter_handle" : "New",
+      "personal_blog_url" : "New",
+      "resume_url" : "New",
+      "github_url" : "New",
+      "photo_url" : "New"
+}
+
+### DELETE Student
+DELETE http://localhost:3000/students/1
+Content-Type: application/json
