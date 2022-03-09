@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Show student
-GET http://localhost:3000/student/3
+GET http://localhost:3000/students/4
 Content-Type: application/json
 
 ### Update 
@@ -42,3 +42,23 @@ Content-Type: application/json
 ### DELETE Student
 DELETE http://localhost:3000/students/1
 Content-Type: application/json
+
+### Users create (signup)
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}   
