@@ -1,3 +1,5 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJzdHVkZW50X2lkIjoxLCJleHAiOjE2NDY5NjQ5NDl9.Jf2z3rcXSjVNq4VJmanWh7oDvc-50zaiPTnRIIuAeKI
+###Create new user
 POST http://localhost:3000/students
 Content-Type: application/json
 
@@ -21,26 +23,17 @@ GET http://localhost:3000/students
 Content-Type: application/json
 
 ### Update 
-PATCH http://localhost:3000/students/7
+PATCH http://localhost:3000/students/1
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "first_name": "New",
-      "last_name": "New",
-      "email": "New",
-      "password": "New",
-      "phone_number" : "New",
-      "short_bio" : "New",
-      "linkedin_url" : "New",
-      "twitter_handle" : "New",
-      "personal_blog_url" : "New",
-      "resume_url" : "New",
-      "github_url" : "New",
-      "photo_url" : "New"
+  "first_name": "Calum"
 }
 
 ### DELETE Student
-DELETE http://localhost:3000/students/7
+DELETE http://localhost:3000/students/5
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 ### Users create (signup)
@@ -59,6 +52,6 @@ POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "jburns@test.com",
+  "email": "cramsel@test.com",
   "password": "password"
 }   

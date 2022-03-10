@@ -29,28 +29,35 @@ class StudentsController < ApplicationController
   end
 
   def update
-    student = Student.find_by(id: current_user.id)
-    student.first_name = params[:first_name] || student.first_name
-    student.last_name = params[:last_name] || student.last_name
-    student.email = params[:email] || student.email
-    student.password = params[:password] || student.password
-    student.phone_number = params[:phone_number] || student.phone_number
-    student.short_bio = params[:short_bio] || student.short_bio
-    student.linkedin_url = params[:linkedin_url] || student.linkedin_url
-    student.twitter_handle = params[:twitter_handle] || student.twitter_handle
-    student.personal_blog_url = params[:personal_blog_url] || student.personal_blog_url
-    student.resume_url = params[:resume_url] || student.resume_url
-    student.github_url = params[:github_url] || student.github_url
-    student.photo_url = params[:photo_url] || student.photo_url
+    if current_user.id == params[:id].to_i
+      student = Student.find_by(id: params[:id])
+      student.first_name = params[:first_name] || student.first_name
+      student.last_name = params[:last_name] || student.last_name
+      student.email = params[:email] || student.email
+      student.password = params[:password] || student.password
+      student.phone_number = params[:phone_number] || student.phone_number
+      student.short_bio = params[:short_bio] || student.short_bio
+      student.linkedin_url = params[:linkedin_url] || student.linkedin_url
+      student.twitter_handle = params[:twitter_handle] || student.twitter_handle
+      student.personal_blog_url = params[:personal_blog_url] || student.personal_blog_url
+      student.resume_url = params[:resume_url] || student.resume_url
+      student.github_url = params[:github_url] || student.github_url
+      student.photo_url = params[:photo_url] || student.photo_url
 
-    student.save
-
-    render json: student
+      student.save
+      render json: student
+    else
+      render json: render json: { errors: student.errors.full_messages }, status: :unauthorized
+    end
   end
 
   def destroy
     student = Student.find_by(id: current_user.id)
-    student.destroy
-    render json: { message: "Delete Sucessful" }
+    if current_user.id == params[:id].to_i
+      student.destroy
+      render json: { message: "Delete Sucessful" }
+    else
+      render json: { errors: student.errors.full_messages }, status: :unauthorized
+    end
   end
 end
