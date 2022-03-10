@@ -47,7 +47,7 @@ class StudentsController < ApplicationController
       student.save
       render json: student
     else
-      render json: render json: { errors: student.errors.full_messages }, status: :unauthorized
+      render json: { errors: student.errors.full_messages }, status: :unauthorized
     end
   end
 
