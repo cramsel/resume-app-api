@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    student = Student.find_by(id: params[:id])
+    student = Student.find_by(id: current_user.id)
     student.first_name = params[:first_name] || student.first_name
     student.last_name = params[:last_name] || student.last_name
     student.email = params[:email] || student.email
@@ -43,11 +43,13 @@ class StudentsController < ApplicationController
     student.github_url = params[:github_url] || student.github_url
     student.photo_url = params[:photo_url] || student.photo_url
 
+    student.save
+
     render json: student
   end
 
   def destroy
-    student = Student.find_by(id: params[:id])
+    student = Student.find_by(id: current_user.id)
     student.destroy
     render json: { message: "Delete Sucessful" }
   end
